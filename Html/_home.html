@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+          asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+          crossorigin="anonymous"
+          integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
+
+    <link rel="stylesheet" href="site.css">
+    <script src="https://kit.fontawesome.com/e4c446107e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1">
+                <span class="fas fa-robot fa-7x"></span>
+            </div>
+            <div class="col-10 heading">
+                <h1 id="title">ZaIn-HaZe_bOt</h1>
+            </div>
+            <div class="col-1">
+                <span class="fas fa-robot fa-7x"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <img src="microbit.png" class="img-fluid" />
+                <ul id="urlContainer">
+                </ul>
+            </div>
+            <div class="col-8 container">
+                <img src="fortnite4.png" class="img-fluid" />
+            </div>
+            <div class="col-2">
+                <span class="fab fa-youtube fa-5x"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            let urlContainer = $("#urlContainer");
+            $.get(" http://localhost:7071/api/GetUrls", function (data) {
+                let microBitUrls = data.microBitUrls;
+
+                $(microBitUrls).each(function () {
+                    let listIten = $('<li>');
+                    let anchor = $('<a>');
+                    anchor.attr("href", this.url);
+                    anchor.text(this.url);
+                    listIten.append(anchor);
+                    urlContainer.append(listIten);
+                });
+
+            }, "json");
+        });
+    </script>
+</body>
+</html>
