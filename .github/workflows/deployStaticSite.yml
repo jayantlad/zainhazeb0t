@@ -27,5 +27,5 @@ jobs:
                  inlineScript: |
                     az cdn endpoint purge --content-paths  "/*" --profile-name zain-haze-bot --name zain-haze-bot --resource-group zain-haze-bot-rg
             - name: logout
-              run: |
+            - run: |
                az logout
