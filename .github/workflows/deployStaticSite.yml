@@ -1,4 +1,4 @@
-name: Blob storage website CI
+name: Blob storage website CD
 
 on:
    push:
@@ -8,10 +8,15 @@ on:
 
 jobs:
   deploy_zain_haze_bot:
-    name: This job will run first
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }} 
+      - uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+                az logout
