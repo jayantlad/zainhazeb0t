@@ -16,6 +16,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }} 
       - uses: azure/CLI@v1
+        name: delete content
         with:
             azcliversion: 2.0.72
             inlineScript: |    
