@@ -7,21 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api.csproj", "{7869E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5FDB3F26-0306-4057-AB76-4684BD381660}"
 	ProjectSection(SolutionItems) = preProject
-		..\Html\_home.html = ..\Html\_home.html
+		..\Html\img\banner-bg.jpg = ..\Html\img\banner-bg.jpg
 		..\deploy.sh = ..\deploy.sh
-		..\Html\fornite.jpg = ..\Html\fornite.jpg
-		..\Html\fornite2.jpg = ..\Html\fornite2.jpg
-		..\Html\fortnite-clipart-banner-2.jpg = ..\Html\fortnite-clipart-banner-2.jpg
-		..\Html\fortnite-final.jpg = ..\Html\fortnite-final.jpg
-		..\Html\fortnite3.png = ..\Html\fortnite3.png
-		..\Html\fortnite4.png = ..\Html\fortnite4.png
+		..\Html\img\fortnite-final.jpg = ..\Html\img\fortnite-final.jpg
 		..\Html\home.html = ..\Html\home.html
-		..\Html\logo.portrait.white.svg = ..\Html\logo.portrait.white.svg
-		..\Html\microbit.jpg = ..\Html\microbit.jpg
-		..\Html\roblox.png = ..\Html\roblox.png
-		..\Html\selfie.jpg = ..\Html\selfie.jpg
-		..\Html\selfie2.png = ..\Html\selfie2.png
-		..\Html\site.css = ..\Html\site.css
+		..\Html\img\microbit.png = ..\Html\img\microbit.png
+		..\Html\img\microbit3.png = ..\Html\img\microbit3.png
+		..\Html\img\phones.png = ..\Html\img\phones.png
+		..\Html\img\roblox.png = ..\Html\img\roblox.png
+		..\Html\img\selfie.jpg = ..\Html\img\selfie.jpg
+		..\Html\img\selfie2.png = ..\Html\img\selfie2.png
 	EndProjectSection
 EndProject
 Global
