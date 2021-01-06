@@ -18,6 +18,11 @@ jobs:
       - uses: azure/CLI@v1
         with:
             azcliversion: 2.0.72
+            inlineScript: |    
+              az storage blob delete-batch -s '$web' --account-name zainhazebotstorageacc
+      - uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
             inlineScript: |
               az storage blob upload-batch --account-name zainhazebotstorageacc -d '$web' -s .
       - uses: azure/CLI@v1
