@@ -1,0 +1,57 @@
+[
+  {
+    "accountEnabled": "True",
+    "addIns": [],
+    "alternativeNames": [],
+    "appDisplayName": "zainLad",
+    "appId": "0f296577-b75e-412c-a9a3-953a6db6520b",
+    "appOwnerTenantId": "05b60513-0347-418a-972d-70e4489a2d3d",
+    "appRoleAssignmentRequired": false,
+    "appRoles": [],
+    "applicationTemplateId": null,
+    "deletionTimestamp": null,
+    "displayName": "zainLad",
+    "errorUrl": null,
+    "homepage": "https://zainLad",
+    "informationalUrls": {
+      "marketing": null,
+      "privacy": null,
+      "support": null,
+      "termsOfService": null
+    },
+    "keyCredentials": [],
+    "logoutUrl": null,
+    "notificationEmailAddresses": [],
+    "oauth2Permissions": [
+      {
+        "adminConsentDescription": "Allow the application to access zainLad on behalf of the signed-in user.",
+        "adminConsentDisplayName": "Access zainLad",
+        "id": "fb6ac0c5-cd4e-4e9a-9da4-8ede7ecd7e48",
+        "isEnabled": true,
+        "type": "User",
+        "userConsentDescription": "Allow the application to access zainLad on your behalf.",
+        "userConsentDisplayName": "Access zainLad",
+        "value": "user_impersonation"
+      }
+    ],
+    "objectId": "c2bb0b1b-4b51-4075-88c1-7547e79abae3",
+    "objectType": "ServicePrincipal",
+    "odata.type": "Microsoft.DirectoryServices.ServicePrincipal",
+    "passwordCredentials": [],
+    "preferredSingleSignOnMode": null,
+    "preferredTokenSigningKeyEndDateTime": null,
+    "preferredTokenSigningKeyThumbprint": null,
+    "publisherName": "Default Directory",
+    "replyUrls": [],
+    "samlMetadataUrl": null,
+    "samlSingleSignOnSettings": null,
+    "servicePrincipalNames": [
+      "http://zainLad",
+      "0f296577-b75e-412c-a9a3-953a6db6520b"
+    ],
+    "servicePrincipalType": "Application",
+    "signInAudience": "AzureADMyOrg",
+    "tags": [],
+    "tokenEncryptionKeyId": null
+  }
+]
