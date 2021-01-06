@@ -15,22 +15,3 @@ jobs:
               with:
                 creds: ${{ secrets.AZURE_CREDENTIALS }} 
                 
-            - name: azure cli script
-            - uses: azure/CLI@v1
-              with:
-                 azcliversion: 2.0.72
-                 inlineScript: |
-                    az storage blob upload-batch --account-name zainhazebotstorageacc -d '$web' -s .
-            
-            - name: purge cdn
-            - uses: azure/CLI@v1
-              with:
-                 azcliversion: 2.0.72
-                 inlineScript: |
-                    az cdn endpoint purge --content-paths  "/*" --profile-name zain-haze-bot --name zain-haze-bot --resource-group zain-haze-bot-rg
-            - name: logout
-            - uses: azure/CLI@v1
-              with:
-                 azcliversion: 2.0.72
-                 inlineScript: |
-                     az logout
