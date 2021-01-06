@@ -7,11 +7,12 @@ on:
       branches: [ master ]
 
 jobs:
-    deploy_zain_haze_bot:
-        runs-on: ubuntu-latest
-        steps:
-            - name: azure login
-            - uses: azure/login@v1
-              with:
-                creds: ${{ secrets.AZURE_CREDENTIALS }} 
-                
+  deploy_zain_haze_bot:
+    name: This job will run first
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: azure login
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }} 
