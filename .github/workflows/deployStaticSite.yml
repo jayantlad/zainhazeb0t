@@ -12,26 +12,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        name: checkout source
       - uses: azure/login@v1
+        name: login to azure
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }} 
       - uses: azure/CLI@v1
-        name: delete content
+        name: Delete $web artifacts
         with:
             azcliversion: 2.0.72
             inlineScript: |    
               az storage blob delete-batch -s '$web' --account-name zainhazebotstorageacc
       - uses: azure/CLI@v1
+        name: Upload artifacts $web
         with:
             azcliversion: 2.0.72
             inlineScript: |
               az storage blob upload-batch --account-name zainhazebotstorageacc -d '$web' -s .
       - uses: azure/CLI@v1
+        name: Purge CDN 
         with:
             azcliversion: 2.0.72
             inlineScript: |
               az cdn endpoint purge --content-paths  "/*" --profile-name zain-haze-bot --name zain-haze-bot --resource-group zain-haze-bot-rg
       - uses: azure/CLI@v1
+        name: logout
         with:
             azcliversion: 2.0.72
             inlineScript: |
