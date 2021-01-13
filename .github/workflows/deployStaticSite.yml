@@ -34,7 +34,7 @@ jobs:
         with:
             azcliversion: 2.0.72
             inlineScript: |
-              az cdn endpoint purge --content-paths  "/*" --profile-name zain-haze-bot --name zain-haze-bot --resource-group zain-haze-bot-rg
+              az cdn endpoint purge --content-paths  "/*" --profile-name zain-haze-bot-cdn --name zl --resource-group zain-haze-bot-rg
       - uses: azure/CLI@v1
         name: logout
         with:
