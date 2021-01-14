@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\Html\img\banner-bg.jpg = ..\Html\img\banner-bg.jpg
 		..\deploy.sh = ..\deploy.sh
 		..\Html\img\fortnite-final.jpg = ..\Html\img\fortnite-final.jpg
-		..\Html\home.html = ..\Html\home.html
 		..\home.html = ..\home.html
 		..\Html\img\microbit.png = ..\Html\img\microbit.png
 		..\Html\img\microbit3.png = ..\Html\img\microbit3.png

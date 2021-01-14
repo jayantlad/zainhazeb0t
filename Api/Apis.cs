@@ -40,7 +40,7 @@ namespace Api
             }
             return new BadRequestResult();
         }
-        /*
+
         [FunctionName("PostUrl")]
         public static async Task<IActionResult> Post(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
@@ -48,13 +48,21 @@ namespace Api
         {
             try
             {
+                var requestBody = new StreamReader(req.HttpContext.Request.Body);
+                var data = JsonConvert.DeserializeObject<Urls>(await requestBody.ReadToEndAsync());
+
+                data.PartitionKey = "microBitUrl";
+                data.RowKey = Guid.NewGuid().ToString();
+
                 var tableServiceClient = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=zainhazebotstorageacc;AccountKey=rMs/w+qMLp8sBrpY2DV7aMAH7oWbqIJDskAhad0wQYt2AoJUh49pbFRjtbfdBPJaTcxr82L5+6FR1lTeaumLsg==;EndpointSuffix=core.windows.net");
 
                 var cloudTableClient = tableServiceClient.CreateCloudTableClient();
 
                 var urlsTable = cloudTableClient.GetTableReference("microbitUrls");
 
-                TableOperation.InsertOrMerge();
+                var tableOperation = TableOperation.InsertOrMerge(data);
+
+                await urlsTable.ExecuteAsync(tableOperation);
 
                 var cvQuery = new TableQuery<Urls>();
 
@@ -67,7 +75,7 @@ namespace Api
                 log.LogError(e.StackTrace);
             }
             return new BadRequestResult();
-        }*/
+        }
 
     }
 }
