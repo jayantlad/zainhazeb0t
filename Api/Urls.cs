@@ -10,5 +10,6 @@ namespace Api
         public string url { get; set; }
         public string partitionKey { get; set; }
         public string rowKey { get; set; }
+        public string name { get; set; }
     }
 }

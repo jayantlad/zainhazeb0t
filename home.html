@@ -223,6 +223,7 @@
                 url = 'https://zan-haze-bot.azurewebsites.net/api/GetUrls?code=JC2ajy8pSFGGXW6Tk//M1islcd9JqEy65gKRJAuVsy5jihb72EXO4A==';
             }
             $.get(url, function (data) {
+
                 let microBitUrls = data.microBitUrls;
 
                 $(microBitUrls).each(function () {
@@ -230,7 +231,7 @@
                     let anchor = $('<a>');
                     anchor.attr("href", this.url);
                     anchor.attr("target", this.url);
-                    anchor.text(this.url);
+                    anchor.text(this.name);
                     listIten.append(anchor);
                     urlContainer.append(listIten);
                 });
