@@ -1,6 +1,5 @@
 RGNAME=zain-haze-bot-rg
 LOCATION=ukwest
-SUBSCRIPTIONID=$(az account list --query [?isDefault].id -o tsv)
 STORAGEACCNAME=zainhazebotstorageacc
 FUNCAPPNAME=zain-haze-bot-funcapp 
 TABLENAME=microbiturls
@@ -19,8 +18,11 @@ az storage blob service-properties update --account-name $STORAGEACCNAME --stati
 
 az storage table create -n $TABLENAME  --account-name zainhazebotstorageacc --connection-string $CONNSTR
 
-URLID=$(uuidgen)
-
-curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$URLID\", \"url\":\"https://makecode.com/_hvoF5R5g2ckx\" }"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
+#load data
+curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_hvoF5R5g2ckx\", \"name\":\"maze\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
+curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_HqXFbd6Kkcjb\", \"name\":\"super helli\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
+curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_6yC4xyJtH6g3\", \"name\":\"strawberry crush\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
+curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_JK8TvxDAfebe\", \"name\":\"chase the pizza\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
+curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_CV27YW4yaJpw\", \"name\":\"strawberry crush\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
 
 az functionapp create -g $RGNAME -n $FUNCAPPNAME -s $STORAGEACCID --assign-identity system --consumption-plan-location ukwest --functions-version 3 --os-type Linux --runtime dotnet --disable-app-insights
