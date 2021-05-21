@@ -18,11 +18,32 @@ az storage blob service-properties update --account-name $STORAGEACCNAME --stati
 
 az storage table create -n $TABLENAME  --account-name zainhazebotstorageacc --connection-string $CONNSTR
 
+
 #load data
-curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_hvoF5R5g2ckx\", \"name\":\"maze\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
-curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_HqXFbd6Kkcjb\", \"name\":\"super helli\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
-curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_6yC4xyJtH6g3\", \"name\":\"strawberry crush\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
-curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_JK8TvxDAfebe\", \"name\":\"chase the pizza\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
-curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$uuidgen\", \"url\":\"https://makecode.com/_CV27YW4yaJpw\", \"name\":\"strawberry crush\"}"  -H "content-type:application/json" -H "accept:application/json" --url $TABLEENDPOINT$TABLENAME?$SASTOKEN
+curl \
+    -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_hvoF5R5g2ckx\", \"name\":\"maze\"}" \
+    -H "content-type:application/json" \
+    -H "accept:application/json" \
+    --url $TABLEENDPOINT$TABLENAME$SASTOKEN
+curl \
+    -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_HqXFbd6Kkcjb\", \"name\":\"super helli\"}" \
+    -H "content-type:application/json" \
+    -H "accept:application/json" \
+    --url $TABLEENDPOINT$TABLENAME$SASTOKEN
+curl \
+    -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_6yC4xyJtH6g3\", \"name\":\"strawberry crush\"}" \
+    -H "content-type:application/json" \
+    -H "accept:application/json" \
+    --url $TABLEENDPOINT$TABLENAME$SASTOKEN
+curl \
+    -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_JK8TvxDAfebe\", \"name\":\"chase the pizza\"}" \
+    -H "content-type:application/json" \
+    -H "accept:application/json" \
+    --url $TABLEENDPOINT$TABLENAME$SASTOKEN
+curl \
+    -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_CV27YW4yaJpw\", \"name\":\"strawberry crush\"}" \
+    -H "content-type:application/json" \
+    -H "accept:application/json" \
+    --url $TABLEENDPOINT$TABLENAME$SASTOKEN
 
 az functionapp create -g $RGNAME -n $FUNCAPPNAME -s $STORAGEACCID --assign-identity system --consumption-plan-location ukwest --functions-version 3 --os-type Linux --runtime dotnet --disable-app-insights
