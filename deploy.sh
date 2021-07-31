@@ -21,7 +21,7 @@ az storage table create -n $TABLENAME  --account-name zainhazebotstorageacc --co
 
 #load data
 curl \
-    -d "{ \"PartitionKey\":\"microbitUrl s\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_hvoF5R5g2ckx\", \"name\":\"maze\"}" \
+    -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_hvoF5R5g2ckx\", \"name\":\"maze\"}" \
     -H "content-type:application/json" \
     -H "accept:application/json" \
     --url $TABLEENDPOINT$TABLENAME$SASTOKEN

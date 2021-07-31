@@ -1,10 +1,6 @@
 TABLEENDPOINT=http://127.0.0.1:10002/devstoreaccount1/
-ACCOUNTKEY='=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=='
 TABLENAME=microbiturls
 SASTOKEN='?st=2021-05-20T08%3A55%3A00Z&se=2021-08-21T08%3A55%3A00Z&sp=raud&sv=2018-03-28&tn=microbiturls&sig=m8H7WyO4AMq3jJLnvMvxaP0UG6p5TpNskx%2FU5gB8NGg%3D'
-CONNSTR='DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://127.0.0.1:10001/devstoreaccount1;'
-
-az storage table create -n $TABLENAME
 
 curl -d "{ \"PartitionKey\":\"microbitUrls\", \"RowKey\":\"$(uuidgen)\", \"url\":\"https://makecode.com/_hvoF5R5g2ckx\", \"name\":\"maze\"}" \
     -H "content-type:application/json" \
