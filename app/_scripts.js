@@ -9,6 +9,7 @@ $(function () {
 
     if (window.location.hostname.includes('172.23.251.79') ||
         window.location.hostname.includes('127.0.0.1') || 
+        window.location.hostname.includes('192.168.36.126') || 
         window.location.hostname.includes('localhost')) {
         url = 'http://localhost:7071/api/#';
     } else {
@@ -43,8 +44,9 @@ $(function () {
     formattedUrl = url.replace('#', 'GetUrls');
     let microbitContainer = $('#microbitContainer');
     let arcadeContainer = $('#arcadeContainer');
+
     $.get(formattedUrl, function (data) {
-        console.info(data);
+
         let microBitUrls = data.urls.filter(u => u.partitionKey === 'microbit');
         microBitUrls.forEach(function(proj){
             let li = buildLinkItem(proj);
